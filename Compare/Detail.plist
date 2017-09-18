@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>starbacks</key>
+	<dict>
+		<key>description</key>
+		<string>かとりょ</string>
+		<key>image</key>
+		<string>Image</string>
+	</dict>
+	<key>macdonald</key>
+	<dict>
+		<key>description</key>
+		<string>かと</string>
+		<key>image</key>
+		<string>Image</string>
+	</dict>
+	<key>Yosinoya</key>
+	<dict>
+		<key>description</key>
+		<string></string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<key>Bo&apos;s coffee</key>
+	<dict>
+		<key>description</key>
+		<string></string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>
