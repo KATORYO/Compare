@@ -10,10 +10,18 @@ import UIKit
 
 class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
   
-    var dicB:NSDictionary = [:]
+  var dicB:NSDictionary = [:]
+  
+  var array:NSArray = []
+  //var dicB:NSDictionary = data as! NSDictionary
   
     //選択されたエリア名を保存するプロパティ
     var scSelectedName = ""
+  
+    //前の画面から送られてきた行番号
+    var scSelectedIndex = -1
+  
+    var Image:UIImage = UIImage()
   
     @IBOutlet weak var myCollectionView1_2: UICollectionView!
   
@@ -22,7 +30,8 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
 
     myCollectionView1_2.delegate = self
     myCollectionView1_2.dataSource = self
-    self.view.addSubview(myCollectionView1_2)
+    //self.view.addSubview(myCollectionView1_2)
+      //// Controllerをview(画面)に追加.
       
       
     //プロパティリスト読み込み
@@ -30,20 +39,21 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
     let filePath = Bundle.main.path(forResource: "Detail", ofType: "plist")
       
     //ファイルの内容を読み込んでディクショナリー型に格納
-    let dic = NSDictionary(contentsOfFile: filePath!)
+    array = NSArray(contentsOfFile: filePath!)!
       
-    let dic_class = dic?[scSelectedName] as!NSDictionary
-
-    print(dic_class["description"]!)
-      
-      
-    for(key,data) in dic!{
-    dicB = data as! NSDictionary
-      if ((key as! NSString) as String == scSelectedName) {
-        navigationItem.title = scSelectedName
-    
-      }
-    }
+//    //let dic_classs = dic?[scSelectedName] as! NSDictionary
+//
+//      //データがゲットできている↓
+//    print(dic_classs["description"]!)
+//      
+//      
+//    for(key,data) in dic!{
+//    dicB = data as! NSDictionary
+//      if ((key as! NSString) as String == scSelectedName) {
+//        navigationItem.title = scSelectedName
+//        
+//      }
+//    }
   }
   
     /*
@@ -59,11 +69,12 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
     
   }
   
+  
     /*
       表示するセルの数！
     */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 3
+    return array.count
     }
   
     /*
@@ -72,10 +83,28 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell:CustomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1_2", for: indexPath) as! CustomCell
-    
+      
+      //取り出す時は型の宣言しなければならない！ as!NS~~
+      dicB = array[indexPath.row] as! NSDictionary
+      
+      print(dicB["description"] as! String)
+      print(dicB["image"] as! String)
+
+      
+//      if 0 == scSelectedIndex {
+//        print("できてます")
+//        cell.myLabel1_2.text? = dicB["description"] as! String
+//      }else if 1 == scSelectedIndex {
+//        print("1できてます")
+//        cell.myLabel1_2.text? = dicB["description"] as! String
+//      }
       
       cell.myLabel1_2.text? = dicB["description"] as! String
-      cell.myImage1_2.image? = UIImage(named:dicB["image"] as!String)!
+      cell.myImage1_2.image = UIImage(named: dicB["image"] as! String)
+      
+      
+      
+//      cell.myImage1_2.image? = UIImage(named: dicB["image"] as! String)!
     //cell.lblSample?.text = list[indexPath.row]
     //cell.imgSample?.image = UIImage(named: imageDesu[indexPath.row])
     return cell
@@ -84,6 +113,8 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 1
   }
+  
+  @IBAction func back1_2 (_ segue:UIStoryboardSegue){}
   
 
     override func didReceiveMemoryWarning() {
