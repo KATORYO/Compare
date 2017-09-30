@@ -4,21 +4,21 @@
 <array>
 	<dict>
 		<key>description</key>
-		<string>Coffee Bean &amp; Tea Leaf</string>
+		<string>studio flat　ワンルームマンション</string>
 		<key>image</key>
-		<string>CoffeeCoffeeBean</string>
+		<string>FastFoodMc</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>STARBUCKS</string>
+		<string></string>
 		<key>image</key>
-		<string>CoffeeSrarbucks</string>
+		<string>FastFoodMc</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>その他 コーヒー価格</string>
+		<string>修理全般</string>
 		<key>image</key>
-		<string>CoffeeCoffeeBean</string>
+		<string>FastFoodMc</string>
 	</dict>
 </array>
 </plist>

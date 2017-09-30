@@ -4,21 +4,21 @@
 <array>
 	<dict>
 		<key>description</key>
-		<string>Coffee Bean &amp; Tea Leaf</string>
+		<string>セブンイレブン</string>
 		<key>image</key>
-		<string>CoffeeCoffeeBean</string>
+		<string>Convenience7</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>STARBUCKS</string>
+		<string>ミニストップ</string>
 		<key>image</key>
-		<string>CoffeeSrarbucks</string>
+		<string>Kfc.Image</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>その他 コーヒー価格</string>
+		<string>ファミリーマート</string>
 		<key>image</key>
-		<string>CoffeeCoffeeBean</string>
+		<string>Kfc.Image</string>
 	</dict>
 </array>
 </plist>

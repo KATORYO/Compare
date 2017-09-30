@@ -10,10 +10,12 @@ import UIKit
 
 class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
   
-  var dicB:NSDictionary = [:]
+    var dicB:NSDictionary = [:]
   
-  var array:NSArray = []
-  //var dicB:NSDictionary = data as! NSDictionary
+    //var dicC:NSDictionary = [:]
+  
+    var array:NSArray = []
+    //var dicB:NSDictionary = data as! NSDictionary
   
     //選択されたエリア名を保存するプロパティ
     var scSelectedName = ""
@@ -28,25 +30,42 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
 
+      print(scSelectedIndex)
+      
     myCollectionView1_2.delegate = self
     myCollectionView1_2.dataSource = self
-    //self.view.addSubview(myCollectionView1_2)
-      //// Controllerをview(画面)に追加.
       
       
     //プロパティリスト読み込み
     //ファイルパスを取得（エリア名が格納されているプロパティリスト）
     let filePath = Bundle.main.path(forResource: "Detail", ofType: "plist")
       
-    //ファイルの内容を読み込んでディクショナリー型に格納
-    array = NSArray(contentsOfFile: filePath!)!
+    let filePathFood = Bundle.main.path(forResource: "Fastfood", ofType: "plist")
+      
+    let filePathConvinience = Bundle.main.path(forResource:"Convenience", ofType:"plist")
+      
+    let filePathShopAndGallery = Bundle.main.path(forResource: "ShopAndGallery", ofType: "plist")
+      
+    //ファイルの内容を読み込んでarray型に格納
+      switch scSelectedIndex {
+      case 0:
+        array = NSArray(contentsOfFile: (filePath)!)!
+      case 1:
+        array = NSArray(contentsOfFile:filePathFood!)!
+      case 2:
+        array = NSArray(contentsOfFile:filePathConvinience!)!
+      case 3:
+        array = NSArray(contentsOfFile:filePathShopAndGallery!)!
+      default: break
+      }
+    //array = NSArray(contentsOfFile: filePath!)!
+    //array = NSArray(contentsOfFile:filePathFood!)!
       
 //    //let dic_classs = dic?[scSelectedName] as! NSDictionary
 //
 //      //データがゲットできている↓
 //    print(dic_classs["description"]!)
-//      
-//      
+//
 //    for(key,data) in dic!{
 //    dicB = data as! NSDictionary
 //      if ((key as! NSString) as String == scSelectedName) {
@@ -64,8 +83,9 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
     //セグエを指定して、画面遷移 アイデンティファイヤーの通路！
     performSegue(withIdentifier: "next2", sender: nil)
     
-    print("Num: \(indexPath.row)")
+    print("Num:\(indexPath.row)")
     print("Value:\(collectionView)")
+    print("arrayの数は\(array.count)")
     
   }
   
@@ -75,6 +95,7 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
     */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return array.count
+      
     }
   
     /*
@@ -86,27 +107,26 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
       
       //取り出す時は型の宣言しなければならない！ as!NS~~
       dicB = array[indexPath.row] as! NSDictionary
+      //dicC = array[indexPath.row] as!NSDictionary
       
-      print(dicB["description"] as! String)
+      //print(dicC["description"] as! String)
       print(dicB["image"] as! String)
 
       
-//      if 0 == scSelectedIndex {
-//        print("できてます")
-//        cell.myLabel1_2.text? = dicB["description"] as! String
-//      }else if 1 == scSelectedIndex {
-//        print("1できてます")
-//        cell.myLabel1_2.text? = dicB["description"] as! String
-//      }
-      
       cell.myLabel1_2.text? = dicB["description"] as! String
       cell.myImage1_2.image = UIImage(named: dicB["image"] as! String)
-      
-      
-      
-//      cell.myImage1_2.image? = UIImage(named: dicB["image"] as! String)!
-    //cell.lblSample?.text = list[indexPath.row]
-    //cell.imgSample?.image = UIImage(named: imageDesu[indexPath.row])
+
+//      //表示今 料金比較のセルの画面を表示する１　２　３
+//      switch indexPath.row {
+//      case 0:
+//        cell.myLabel1_2.text? = dicB["description"] as! String
+//        cell.myImage1_2.image = UIImage(named: dicB["image"] as! String)
+//     case 1:
+//        cell.myLabel1_2.text? = dicB["description"] as! String
+//        cell.myImage1_2.image = UIImage(named: dicB["image"] as! String)
+//      default:break
+//      }
+
     return cell
   }
   // セクションの数（今回は1つ）

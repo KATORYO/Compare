@@ -14,16 +14,27 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   let list:[String] = ["コーヒー","ファストフード","コンビニ","雑貨","生活費","レストラン","大きな買い物","電化製品","住宅","工事費"]
   
-  let imageDesu:[String] = ["Image-1","BurgerKing.Image","Image-6","Image-11","Image-9","Image","Image-10","Image-2","Image-3","Image-12"]
+  let imageDesu:[String] = ["CoffeeSrarbucks","FastFoodBurgerKing","Convenience7","Image-11","LivingOfCosts","Image","Image-10","Image-2","Image-3","Image-12"]
   
   var myImage:UIImage = UIImage()
   
-  
+  //一つだけでもオッケー！
   //紹介したいエリア名が格納される配列
+  
+  
   var placeList:[String] = []
+  
+  var placeListFood:[String] = []
+  
+  var placeListConvenience:[String] = []
+  
+  var placeListShopAndGallery:[String] = []
+  
   
   //選択された行の表示エリア名
   var selectedName = ""
+  
+  var selectedName1 = ""
   
   var selectedIndex = -1 //選択された行番号！
 		
@@ -33,47 +44,57 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    //ファイルパスを取得(エリア名が格納されているプロパティリスト)
+    //ファイルパスを取得
+    //(エリア名が格納されているプロパティリスト)
     let filePath = Bundle.main.path(forResource: "Detail", ofType: "plist")
+    
+    let filePathFastfood = Bundle.main.path(forResource: "Fastfood", ofType: "plist")
+    
+    let filePathConvinience = Bundle.main.path(forResource:"Convenience", ofType:"plist")
+    
+    let filePathShopAndGallery = Bundle.main.path(forResource: "ShopAndGallery", ofType: "plist")
+    
+    //let filePath
     
     //ファイルの内容を読み込んでディクショナリー型に格納(わかりやすくするため)
     let array = NSArray(contentsOfFile:filePath!)
     
+    let arrayFood = NSArray(contentsOfFile:filePathFastfood!)
+    
+    let arrayConvenience = NSArray(contentsOfFile:filePathConvinience!)
+    
+    let arrayShopAndGallery = NSArray(contentsOfFile:filePathShopAndGallery!)
+    
     //TableViewで扱いやすい形（エリア名の入っている配列）を作成
     //dictionary型の高速列挙
     for data in array! {
-      
-    //print(key) //データ取れている9/19
-      
       var dic = data as! NSDictionary
       
-    placeList.append(dic["description"] as! String)
+      placeList.append(dic["description"] as! String)
       //apendが何か？ Key配列の追加！
+      placeListFood.append(dic["description"] as! String)
+      
+      placeListConvenience.append(dic["description"] as! String)
+      placeListShopAndGallery.append(dic["description"] as! String)
+      
     }
-  
-    
-    myCollectionView.delegate = self
-    myCollectionView.dataSource = self
-    
-    //self.view.addSubview(myCollectionView)
-    //ここの処理は何をしているか？ プログラム内の追加の処理
   }
-  
  
+  
   /*
    Cellが押された時
    */
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-    selectedName = placeList[indexPath.row]
-    
-    //選択されたエリア名を保存
-    //相手セルの番号を指定しておくる！9/19
+    selectedIndex = indexPath.row
+    //selectedName = placeList[indexPath.row]
+
     if 0 == indexPath.row {
       print("確認用")
       selectedName = placeList[indexPath.row]
     }else if 1 == indexPath.row {
       selectedName = placeList[indexPath.row]
+      print("確認用２")
     }else if 2 == indexPath.row{
       selectedName = placeList[indexPath.row]
     }else if 3 == indexPath.row {
@@ -83,13 +104,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     }else if 5 == indexPath.row{
       myImage = UIImage(named: "Image")!
     }
-    
-    
-    
-//    if 0 == indexPath.row {
-//      selectedName = placeList[indexPath.row]
-//    }
-    
     //セグエを指定して、画面遷移 アイデンティファイヤーの通路！
     performSegue(withIdentifier: "next", sender: nil)
     
@@ -97,6 +111,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     print("Value:\(collectionView)")
     
   }
+  
   
   /*
    表示するセルの数！
@@ -132,9 +147,9 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     //移動先画面のオブジェクトを取得！
     let dv: ViewController1_2 = segue.destination as! ViewController1_2
     
-    
-    //作成しておいたプロパティに、選択されたエリア名を保存
     dv.scSelectedName = selectedName
+    
+    dv.scSelectedName = selectedName1
     
     dv.scSelectedIndex = selectedIndex
     
