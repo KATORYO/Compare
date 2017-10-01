@@ -12,17 +12,14 @@ import UIKit
 
 class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
-  let list:[String] = ["コーヒー","ファストフード","コンビニ","雑貨","生活費","レストラン","大きな買い物","電化製品","住宅","工事費"]
+  let list:[String] = ["飲食店","コンビニ","雑貨","生活費","大きな買い物","電化製品","住宅","工事費"]
   
-  let imageDesu:[String] = ["CoffeeSrarbucks","FastFoodBurgerKing","Convenience7","Image-11","LivingOfCosts","Image","Image-10","Image-2","Image-3","Image-12"]
+  let imageDesu:[String] = ["CoffeeSrarbucks","Convenience7","Image-11","LivingOfCosts","Image-10","Image-2","Image-3","Image-12"]
   
   var myImage:UIImage = UIImage()
   
   //一つだけでもオッケー！
   //紹介したいエリア名が格納される配列
-  
-  
-  var placeList:[String] = []
   
   var placeListFood:[String] = []
   
@@ -30,11 +27,19 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   var placeListShopAndGallery:[String] = []
   
+  var placeListLivingOfCosts:[String] = []
   
-  //選択された行の表示エリア名
+  var placeListBigShopping:[String] = []
+  
+  var placeListElectricAppliances:[String] = []
+  
+  var placeListDwelling:[String] = []
+  
+  var placeListConstruction:[String] = []
+  
+  
+  //ここに保存されて、次の画面に送る！
   var selectedName = ""
-  
-  var selectedName1 = ""
   
   var selectedIndex = -1 //選択された行番号！
 		
@@ -44,39 +49,66 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    //ファイルパスを取得
-    //(エリア名が格納されているプロパティリスト)
-    let filePath = Bundle.main.path(forResource: "Detail", ofType: "plist")
+  //ファイルパスを取得
+  let filePath = Bundle.main.path(forResource: "Detail", ofType: "plist")
     
-    let filePathFastfood = Bundle.main.path(forResource: "Fastfood", ofType: "plist")
+  let filePathFastfood = Bundle.main.path(forResource: "Fastfood", ofType: "plist")
     
-    let filePathConvinience = Bundle.main.path(forResource:"Convenience", ofType:"plist")
+  let filePathConvinience = Bundle.main.path(forResource:"Convenience", ofType:"plist")
     
-    let filePathShopAndGallery = Bundle.main.path(forResource: "ShopAndGallery", ofType: "plist")
+  let filePathShopAndGallery = Bundle.main.path(forResource: "ShopAndGallery", ofType: "plist")
     
-    //let filePath
+  let filePathLivingOfCosts = Bundle.main.path(forResource: "LivingOfCosts", ofType: "plist")
+    
+  let filePathElectricAppliances = Bundle.main.path(forResource: "ElectricAppliances", ofType: "plist")
+    
+  let filePathBigShopping = Bundle.main.path(forResource: "BigShopping", ofType: "plist")
+    
+  let filePathConstruction = Bundle.main.path(forResource: "Construction", ofType: "plist")
+  let filePathDwelling = Bundle.main.path(forResource: "Dwelling", ofType: "plist")
+    
     
     //ファイルの内容を読み込んでディクショナリー型に格納(わかりやすくするため)
     let array = NSArray(contentsOfFile:filePath!)
     
-    let arrayFood = NSArray(contentsOfFile:filePathFastfood!)
-    
-    let arrayConvenience = NSArray(contentsOfFile:filePathConvinience!)
-    
-    let arrayShopAndGallery = NSArray(contentsOfFile:filePathShopAndGallery!)
+//    let arrayFood = NSArray(contentsOfFile:filePathFastfood!)
+//    
+//    let arrayConvenience = NSArray(contentsOfFile:filePathConvinience!)
+//    
+//    let arrayShopAndGallery = NSArray(contentsOfFile:filePathShopAndGallery!)
+//    
+//    let arrayLivingOfcosts = NSArray(contentsOfFile: filePathLivingOfCosts!)
+//    
+//    let arrayBigShopping = NSArray(contentsOfFile: filePathBigShopping!)
+//    
+//    let arrayElectricAppliances = NSArray(contentsOfFile: filePathElectricAppliances!)
+//    
+//    let arrayConstruction = NSArray(contentsOfFile: filePathConstruction!)
+//    
+//    let arrayDwelling = NSArray(contentsOfFile: filePathDwelling!)
     
     //TableViewで扱いやすい形（エリア名の入っている配列）を作成
     //dictionary型の高速列挙
     for data in array! {
-      var dic = data as! NSDictionary
+      let dic = data as! NSDictionary
       
-      placeList.append(dic["description"] as! String)
-      //apendが何か？ Key配列の追加！
-      placeListFood.append(dic["description"] as! String)
+      
+          //apendが何か？ Key配列の追加！
+          placeListFood.append(dic["description"] as! String)
       
       placeListConvenience.append(dic["description"] as! String)
       placeListShopAndGallery.append(dic["description"] as! String)
       
+      placeListLivingOfCosts.append(dic["description"] as! String)
+
+      placeListBigShopping.append(dic["description"] as! String)
+      
+      placeListElectricAppliances.append(dic["description"] as! String)
+      
+      
+        placeListDwelling.append(dic["description"] as! String)
+      placeListConstruction.append(dic["description"] as! String)
+
     }
   }
  
@@ -87,29 +119,30 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
     selectedIndex = indexPath.row
-    //selectedName = placeList[indexPath.row]
-
-    if 0 == indexPath.row {
+    
+    if selectedIndex == 0 {
       print("確認用")
-      selectedName = placeList[indexPath.row]
-    }else if 1 == indexPath.row {
-      selectedName = placeList[indexPath.row]
-      print("確認用２")
-    }else if 2 == indexPath.row{
-      selectedName = placeList[indexPath.row]
-    }else if 3 == indexPath.row {
-      selectedName = placeList[indexPath.row]
-    }else if 4 == indexPath.row{
-      selectedName = placeList[indexPath.row]
-    }else if 5 == indexPath.row{
-      myImage = UIImage(named: "Image")!
+      var selectedName = placeListFood
+    }else if selectedIndex == 1 {
+      var selectedName = placeListConvenience
+    }else if selectedIndex == 2{
+      var selectedName:[String] = placeListShopAndGallery
+    }else if selectedIndex == 3 {
+      var selectedName:[String] = placeListLivingOfCosts
+    }else if selectedIndex == 4{
+      var selectedName:[String] = placeListBigShopping
+    }else if selectedIndex == 5{
+      var selectedName:[String] = placeListElectricAppliances
+    }else if selectedIndex == 6{
+      var selectedName:[String] = placeListDwelling
+    }else if selectedIndex == 7{
+      var selectedName:[String] = placeListConstruction
     }
     //セグエを指定して、画面遷移 アイデンティファイヤーの通路！
     performSegue(withIdentifier: "next", sender: nil)
     
     print("Num: \(indexPath.row)")
     print("Value:\(collectionView)")
-    
   }
   
   
@@ -148,8 +181,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     let dv: ViewController1_2 = segue.destination as! ViewController1_2
     
     dv.scSelectedName = selectedName
-    
-    dv.scSelectedName = selectedName1
     
     dv.scSelectedIndex = selectedIndex
     

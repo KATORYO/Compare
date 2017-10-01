@@ -14,8 +14,12 @@ class ViewController1_3: UIViewController,UITableViewDelegate,UITableViewDataSou
   // Sectionで使用する配列を定義する.
   private let mySections: NSArray = ["iPhone", "Android"]
   
+  var scSelectedName2 = ""
+  var scSelectedIndex2 = -1
+  
   
   @IBOutlet weak var myNavigation1_3: UINavigationBar!
+  
 
   @IBOutlet weak var myTableView1_3: UITableView!
     override func viewDidLoad() {
@@ -24,6 +28,7 @@ class ViewController1_3: UIViewController,UITableViewDelegate,UITableViewDataSou
 
       self.myTableView1_3.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
       
+      
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,20 +36,23 @@ class ViewController1_3: UIViewController,UITableViewDelegate,UITableViewDataSou
         // Dispose of any resources that can be recreated.
     }
   
-
+  //セクションの数
   func numberOfSections(in tableView: UITableView) -> Int {
     return mySections.count
   }
+  
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 5
   }
   
-  
+  //ここで３番目の画面を表示
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
     
-    cell.nameLabel.text = "aaaaa"
+    var scSelectedName2 = "a"
+    
+    cell.nameLabel.text = scSelectedName2
     
     return cell
   }
