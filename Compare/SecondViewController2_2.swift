@@ -2,22 +2,37 @@
 //  SecondViewController2_2.swift
 //  Compare
 //
-//  Created by 加藤諒 on 2017/09/26.
+//  Created by 加藤諒 on 2017/10/01.
 //  Copyright © 2017年 mirai. All rights reserved.
 //
 
-
 import UIKit
 
-class NoteViewController: UIViewController {
+class SecondViewController2_2: UIViewController {
+  
+
+  @IBOutlet weak var myTitle: UITextView!
+  
+  
+  @IBAction func backBtn(_ sender: UIBarButtonItem) {
+  }
+  
+  
+  @IBAction func closeBtn(_ sender: UIBarButtonItem) {
+      myTitle.resignFirstResponder()
+  }
+  override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+  }
 
   
-  // MARK: - View Controller Lifecycle
-  override func viewDidLoad() {
-    super.viewDidLoad()
-}
-
-
+  override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+  }
+    
 
     /*
     // MARK: - Navigation
@@ -28,6 +43,5 @@ class NoteViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 
 }

@@ -7,40 +7,40 @@
 		<string>Burger</string>
 		<key>item</key>
 		<string>ハンバーガー</string>
-		<key>pricePesp</key>
-		<string>40</string>
+		<key>pricePeso</key>
+		<string>40php</string>
 		<key>priceYen</key>
-		<string>100</string>
+		<string>100php</string>
 	</dict>
 	<dict>
 		<key>camera</key>
 		<string>Burger</string>
 		<key>item</key>
-		<string>ハンバーガー</string>
-		<key>pricePesp</key>
-		<string>40</string>
+		<string>チキンバーガー</string>
+		<key>pricePeso</key>
+		<string>50php</string>
 		<key>priceYen</key>
-		<string>100</string>
+		<string>100php</string>
 	</dict>
 	<dict>
 		<key>camera</key>
-		<string></string>
+		<string>Burger</string>
 		<key>item</key>
-		<string></string>
-		<key>pricePesp</key>
-		<string></string>
+		<string>ビッグマック</string>
+		<key>pricePeso</key>
+		<string>60php</string>
 		<key>priceYen</key>
-		<string></string>
+		<string>140php</string>
 	</dict>
 	<dict>
 		<key>camera</key>
-		<string></string>
+		<string>Burger</string>
 		<key>item</key>
-		<string></string>
-		<key>pricePesp</key>
-		<string></string>
+		<string>テリヤキバーガー</string>
+		<key>pricePeso</key>
+		<string>50php</string>
 		<key>priceYen</key>
-		<string></string>
+		<string>100php</string>
 	</dict>
 </array>
 </plist>

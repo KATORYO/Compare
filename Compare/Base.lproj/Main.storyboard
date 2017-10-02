@@ -127,11 +127,12 @@
                                 <color key="backgroundColor" red="0.92588486405835546" green="0.90375005393763375" blue="0.70456779967358518" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="料金を比較する" id="AOd-qo-KbW">
-                                        <barButtonItem key="leftBarButtonItem" title="戻る" id="FrY-tA-hDX">
-                                            <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <segue destination="Fyo-rP-S1O" kind="unwind" unwindAction="back1_2:" id="Pgh-S8-Pt6"/>
-                                            </connections>
+                                        <barButtonItem key="rightBarButtonItem" image="Image-17" style="plain" id="lq3-Tr-BiQ">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xMj-iq-uSo">
+                                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -230,9 +231,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUA-Gs-QWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Fyo-rP-S1O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3904" y="-807"/>
+            <point key="canvasLocation" x="3860.625" y="-807.04225352112678"/>
         </scene>
         <!--ユーザー記録-->
         <scene sceneID="wg7-f3-ORb">
@@ -247,15 +247,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pAk-Ym-fZJ">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="dsi-oV-1J1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="dsi-oV-1J1">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dsi-oV-1J1" id="yO2-XP-FZO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -274,7 +274,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="myTableViewMemo" destination="pAk-Ym-fZJ" id="RoM-zp-L0p"/>
-                        <segue destination="twQ-tm-J1w" kind="showDetail" identifier="next3" id="SYF-Qa-l6x"/>
+                        <segue destination="twQ-tm-J1w" kind="showDetail" identifier="next3" id="pW5-h5-QiF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -301,7 +301,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zB7-oc-lKi" id="cMe-uk-Wj8">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="19"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="18.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -344,7 +344,7 @@
         <!--Second View Controller22-->
         <scene sceneID="dNU-xo-EHt">
             <objects>
-                <viewController id="twQ-tm-J1w" customClass="SecondViewController2_2" customModule="Compare" sceneMemberID="viewController">
+                <viewController id="twQ-tm-J1w" customClass="SecondViewController2_2" customModule="Compare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hsG-pC-L1n"/>
                         <viewControllerLayoutGuide type="bottom" id="idL-Yh-W0g"/>
@@ -358,7 +358,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="iak-Z8-YWy"/>
-                                    <barButtonItem systemItem="camera" id="0xE-CO-sPC"/>
+                                    <barButtonItem systemItem="add" id="0xE-CO-sPC"/>
                                     <barButtonItem systemItem="compose" id="Cr5-y4-TeN"/>
                                 </items>
                             </toolbar>
@@ -376,8 +376,16 @@
                                     <navigationItem id="TDJ-sX-XWw">
                                         <barButtonItem key="leftBarButtonItem" title="戻る" id="E2F-7U-FJJ">
                                             <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="backBtn:" destination="twQ-tm-J1w" id="8lZ-2p-M9x"/>
+                                                <segue destination="7Ib-he-aAE" kind="unwind" unwindAction="back:" id="VVz-9a-gsG"/>
+                                            </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SB2-GK-Blx"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SB2-GK-Blx">
+                                            <connections>
+                                                <action selector="closeBtn:" destination="twQ-tm-J1w" id="qhX-Qa-8WZ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -386,8 +394,12 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myTitle" destination="3tz-ds-foa" id="zeA-eN-lXz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPy-Jj-hZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7Ib-he-aAE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2861" y="0.0"/>
         </scene>
@@ -535,4 +547,7 @@
             <point key="canvasLocation" x="819.375" y="-807.04225352112678"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image-17" width="33" height="34"/>
+    </resources>
 </document>
