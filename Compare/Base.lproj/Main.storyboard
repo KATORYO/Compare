@@ -87,6 +87,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="13"/>
                                 <state key="normal" title="最新のレートを取得"/>
+                                <connections>
+                                    <action selector="rateBtn:" destination="9pv-A4-QxB" eventType="touchUpInside" id="iRt-kf-fyr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,6 +106,7 @@
                     <navigationItem key="navigationItem" title="料金を比較する！" id="jAz-bk-7Hq"/>
                     <connections>
                         <outlet property="myCollectionView" destination="6b8-09-zNB" id="xHE-U0-2b1"/>
+                        <outlet property="rateBtn" destination="dPx-xA-Txg" id="Vub-23-1Va"/>
                         <segue destination="WOQ-rx-kyT" kind="show" identifier="next" id="RNV-UW-yzC"/>
                     </connections>
                 </viewController>

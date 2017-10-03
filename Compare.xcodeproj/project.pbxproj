@@ -17,6 +17,7 @@
 		E367FBF81F826377003C015F /* 7price.plist in Resources */ = {isa = PBXBuildFile; fileRef = E367FBF71F826377003C015F /* 7price.plist */; };
 		E367FBFA1F827622003C015F /* YoshinoyaPrice.plist in Resources */ = {isa = PBXBuildFile; fileRef = E367FBF91F827622003C015F /* YoshinoyaPrice.plist */; };
 		E367FBFC1F827823003C015F /* Marukame.plist in Resources */ = {isa = PBXBuildFile; fileRef = E367FBFB1F827823003C015F /* Marukame.plist */; };
+		E373D75B1F8352DD008D96BA /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E373D7591F83527F008D96BA /* SwiftyJSON.framework */; };
 		E3974B001F74F71B00CDD953 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3974AFE1F74F71B00CDD953 /* CustomTableViewCell.swift */; };
 		E3974B011F74F71B00CDD953 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3974AFF1F74F71B00CDD953 /* CustomTableViewCell.xib */; };
 		E3AB05C51F6E004C00B20261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB05C41F6E004C00B20261 /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 		E367FBF71F826377003C015F /* 7price.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 7price.plist; sourceTree = "<group>"; };
 		E367FBF91F827622003C015F /* YoshinoyaPrice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YoshinoyaPrice.plist; sourceTree = "<group>"; };
 		E367FBFB1F827823003C015F /* Marukame.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Marukame.plist; sourceTree = "<group>"; };
+		E373D7591F83527F008D96BA /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/Compare-euiaddjhbqqrmzgrkqdmyglpgsiz/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		E3974AFE1F74F71B00CDD953 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E3974AFF1F74F71B00CDD953 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		E3AB05C11F6E004C00B20261 /* Compare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compare.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E373D75B1F8352DD008D96BA /* SwiftyJSON.framework in Frameworks */,
 				E367FBF41F820592003C015F /* FontAwesome_swift.framework in Frameworks */,
 				CF026E275FEA1985348D2398 /* Pods_Compare.framework in Frameworks */,
 			);
@@ -137,6 +140,7 @@
 		662C6BD4D38385121224D93B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E373D7591F83527F008D96BA /* SwiftyJSON.framework */,
 				E367FBF31F820592003C015F /* FontAwesome_swift.framework */,
 				11A250D83141773BC535CD54 /* Pods_Compare.framework */,
 				79843CD9F3D5DDFCC423723F /* Pods_CompareTests.framework */,
@@ -460,10 +464,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Compare/Pods-Compare-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

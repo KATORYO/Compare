@@ -7,11 +7,16 @@
 //
 
 import UIKit
-
-
+import SwiftyJSON
 
 class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
+  @IBOutlet weak var rateBtn: UIButton!
+
+  
+  //日本円で50.0円のもの
+  var amountJPY = 1.0
+
   let list:[String] = ["飲食店","コンビニ","雑貨","生活費","大きな買い物","電化製品","住宅","工事費"]
   
   let imageDesu:[String] = ["CoffeeSrarbucks","Convenience7","Image-11","LivingOfCosts","Image-10","Image-2","Image-3","Image-12"]
@@ -48,71 +53,58 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    rateBtn.setTitle("\(Int(amountJPY))円", for: .normal)
+    // URLを指定してオブジェクトを作成
+    let stringUrl = "http://api.aoikujira.com/kawase/json/jpy"
+    let url = URL(string: stringUrl)
+    let request = URLRequest(url: url!)
+    
+    // コンフィグを指定してHTTPセッションを生成
+    let session = URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue.main)
+    
+    // HTTP通信を実行する
+    // ※dataにJSONデータが入る
+    let task:URLSessionDataTask = session.dataTask(with: request, completionHandler: {data, responce, error in
+      // エラーがあったら出力
+      if error != nil {
+        print(error!)
+        return
+      }
+      
+      DispatchQueue.main.async {
+        // データ取得後の処理
+        
+        // JSONデータを食わせる
+        let json = JSON(data: data!)
+        
+        // ペソ
+        if let ratePHP = json["PHP"].string {
+          // StringからDouble型に変換
+          let rate = Double(ratePHP)!
+          // ペソに変換(小数第4位まで)
+          let amountPHP = round(self.amountJPY * rate * 10) / 10
+          // ラベルに表示
+          self.rateBtn.setTitle("\(amountPHP)ペソ", for: .normal) //= "\(amountUSD)ドル"
+        } else {
+          // キー値不正などで値が取得できなかった場合の処理
+        }
+      }
+      
+      
+    })
+    
+    // HTTP通信を実行
+    task.resume()
+    
+    
   }
   
-  //ファイルパスを取得
-//  let filePath = Bundle.main.path(forResource: "Detail", ofType: "plist")
-//    
-//  let filePathFastfood = Bundle.main.path(forResource: "Fastfood", ofType: "plist")
-//    
-//  let filePathConvinience = Bundle.main.path(forResource:"Convenience", ofType:"plist")
-//    
-//  let filePathShopAndGallery = Bundle.main.path(forResource: "ShopAndGallery", ofType: "plist")
-//    
-//  let filePathLivingOfCosts = Bundle.main.path(forResource: "LivingOfCosts", ofType: "plist")
-//    
-//  let filePathElectricAppliances = Bundle.main.path(forResource: "ElectricAppliances", ofType: "plist")
-//    
-//  let filePathBigShopping = Bundle.main.path(forResource: "BigShopping", ofType: "plist")
-//    
-//  let filePathConstruction = Bundle.main.path(forResource: "Construction", ofType: "plist")
-//  let filePathDwelling = Bundle.main.path(forResource: "Dwelling", ofType: "plist")
-//    
-    
-    //ファイルの内容を読み込んでディクショナリー型に格納(わかりやすくするため)
-//    let array = NSArray(contentsOfFile:filePath!)
-//
-//    let arrayFood = NSArray(contentsOfFile:filePathFastfood!)
-//    
-//    let arrayConvenience = NSArray(contentsOfFile:filePathConvinience!)
-//    
-//    let arrayShopAndGallery = NSArray(contentsOfFile:filePathShopAndGallery!)
-//    
-//    let arrayLivingOfcosts = NSArray(contentsOfFile: filePathLivingOfCosts!)
-//    
-//    let arrayBigShopping = NSArray(contentsOfFile: filePathBigShopping!)
-//    
-//    let arrayElectricAppliances = NSArray(contentsOfFile: filePathElectricAppliances!)
-//    
-//    let arrayConstruction = NSArray(contentsOfFile: filePathConstruction!)
-//    
-//    let arrayDwelling = NSArray(contentsOfFile: filePathDwelling!)
-    
-    //TableViewで扱いやすい形（エリア名の入っている配列）を作成
-    //dictionary型の高速列挙
-//    for data in array! {
-//      let dic = data as! NSDictionary
-    
-      
-          //apendが何か？ Key配列の追加！
-//          placeListFood.append(dic["description"] as! String)
-//      
-//      placeListConvenience.append(dic["description"] as! String)
-//      placeListShopAndGallery.append(dic["description"] as! String)
-//      
-//      placeListLivingOfCosts.append(dic["description"] as! String)
-//
-//      placeListBigShopping.append(dic["description"] as! String)
-//      
-//      placeListElectricAppliances.append(dic["description"] as! String)
-//      
-//      
-//        placeListDwelling.append(dic["description"] as! String)
-//      placeListConstruction.append(dic["description"] as! String)
-//
-//    }
-//  }
- 
+  
+  
+  @IBAction func rateBtn(_ sender: UIButton) {
+  }
+  
   
   /*
    Cellが押された時
