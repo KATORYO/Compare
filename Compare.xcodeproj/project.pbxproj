@@ -123,7 +123,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				E35C15A81F83AADA00030C6E /* CoreData.framework in Frameworks */,
+=======
+>>>>>>> 3798fb376bd9f05d699531e0f22075c87269aa78
 				E373D75B1F8352DD008D96BA /* SwiftyJSON.framework in Frameworks */,
 				E367FBF41F820592003C015F /* FontAwesome_swift.framework in Frameworks */,
 				CF026E275FEA1985348D2398 /* Pods_Compare.framework in Frameworks */,
@@ -152,7 +155,10 @@
 		662C6BD4D38385121224D93B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				E35C15A71F83AADA00030C6E /* CoreData.framework */,
+=======
+>>>>>>> 3798fb376bd9f05d699531e0f22075c87269aa78
 				E373D7591F83527F008D96BA /* SwiftyJSON.framework */,
 				E367FBF31F820592003C015F /* FontAwesome_swift.framework */,
 				11A250D83141773BC535CD54 /* Pods_Compare.framework */,

@@ -62,7 +62,11 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
           // StringからDouble型に変換
           let rate = Double(ratePHP)!
           // ペソに変換(小数第4位まで)
+<<<<<<< HEAD
           let amountPHP = round(self.amountJPY * rate * 10000) / 10000
+=======
+          let amountPHP = round(self.amountJPY * rate * 10) / 10
+>>>>>>> 3798fb376bd9f05d699531e0f22075c87269aa78
           // ラベルに表示
           self.rateBtn.setTitle("\(amountPHP)ペソ", for: .normal) //= "\(amountUSD)ドル"
         } else {
