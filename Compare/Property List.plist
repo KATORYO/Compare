@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>マクドナルド</key>
+		<dict>
+			<key>New item - 3</key>
+			<string></string>
+			<key>New item - 2</key>
+			<string></string>
+			<key>New item</key>
+			<string></string>
+		</dict>
+		<key></key>
+		<string></string>
+	</dict>
+	<string></string>
+	<string></string>
+	<string></string>
+	<string></string>
+	<string></string>
+	<dict>
+		<key>New item - 3</key>
+		<string></string>
+		<key></key>
+		<string></string>
+		<key>New item - 4</key>
+		<string></string>
+		<key>New item - 2</key>
+		<string></string>
+		<key>New item</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>New item - 2</key>
+		<string></string>
+		<key>New item</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

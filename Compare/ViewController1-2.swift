@@ -11,21 +11,14 @@ import UIKit
 class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
   
   
-  var placeListFood:[String] = []
-  
-  var placeListConvenience:[String] = []
-  
-  var placeListShopAndGallery:[String] = []
-  
-  var placeListLivingOfCosts:[String] = []
-  
-  var placeListBigShopping:[String] = []
-  
-  var placeListElectricAppliances:[String] = []
-  
-  var placeListDwelling:[String] = []
-  
-  var placeListConstruction:[String] = []
+    var placeListFood:[String] = []
+    var placeListConvenience:[String] = []
+    var placeListShopAndGallery:[String] = []
+    var placeListLivingOfCosts:[String] = []
+    var placeListBigShopping:[String] = []
+    var placeListElectricAppliances:[String] = []
+    var placeListDwelling:[String] = []
+    var placeListConstruction:[String] = []
   
     var dicB:NSDictionary = [:]
   
@@ -37,10 +30,7 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
     //var dicB:NSDictionary = data as! NSDictionary
   
     //選択されたエリア名を保存するプロパティ
-    var selectedIndex = -1
-
-  
-    //前の画面から送られてきた行番号
+    //ここで２番目の表示する画面を判断する
     var scSelectedIndex = -1
   
     //この画面から１−３への番号
@@ -173,7 +163,6 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       
       //ここが３番目の画面を左右する！
-      scSelectedIndex = indexPath.row
       scSelectedIndex1 = indexPath.row
       SelectedIndex3 = indexPath.row
       SelectedIndex4 = indexPath.row
@@ -181,7 +170,6 @@ class ViewController1_2: UIViewController,UICollectionViewDelegate, UICollection
       
       if scSelectedIndex == 0 && scSelectedIndex1 == 0{
         let SelectedIndex3 = scSelectedIndex1
-        print("ですよん\(SelectedIndex3)")
       }else if scSelectedIndex == 0 && scSelectedIndex1 == 1{
         var SelectedIndex3:Int = scSelectedIndex1
         print("かとんりょ\(SelectedIndex3)")
